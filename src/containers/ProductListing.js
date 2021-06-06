@@ -3,23 +3,23 @@ import axios from "axios";
 import ProductComponent from "./ProductComponent";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../redux/actions/productActions";
+import { setProducts, fetchProducts } from "../redux/actions/productActions";
 
 function ProductListing() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.allProducts.products);
 
-  const fetchProducts = async () => {
-    const response = await axios
-      .get("https://fakestoreapi.com/products")
-      .catch((err) => {
-        console.log("error", err);
-      });
-    dispatch(setProducts(response.data));
-  };
+//   const fetchProducts = async () => {
+//     const response = await axios
+//       .get("https://fakestoreapi.com/products")
+//       .catch((err) => {
+//         console.log("error", err);
+//       });
+//     dispatch(setProducts(response.data));
+//   };
 
   useEffect(() => {
-    fetchProducts();
+    dispatch(fetchProducts());
   }, []);
   console.log('products: ', products);
 
