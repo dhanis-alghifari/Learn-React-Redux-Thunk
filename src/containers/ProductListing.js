@@ -1,9 +1,14 @@
 import React from 'react'
 
+import ProductComponent from './ProductComponent';
+
 function ProductListing() {
+
+  
+
     return (
-        <div>
-            <h1>Product Listing</h1>
+        <div className="ui grid container" style={{marginTop: '4rem'}}>
+            <ProductComponent/>
         </div>
     )
 }
